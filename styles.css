@@ -1,0 +1,2270 @@
+:root {
+    --primary-color: #5D4037;
+    --secondary-color: #8D6E63;
+    --accent-color: #D7CCC8;
+    --highlight-color: #FFAB91;
+    --dark-color: #3E2723;
+    --light-color: #EFEBE9;
+    --text-color: #263238;
+    --text-light: #EFEBE9;
+    --transition: all 0.3s ease;
+    --shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    --container-width: 1200px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-size: 16px;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--light-color);
+    overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    line-height: 1.3;
+    margin-bottom: 1rem;
+}
+
+h1 {
+    font-size: 3.5rem;
+}
+
+h2 {
+    font-size: 2.5rem;
+    position: relative;
+    display: inline-block;
+}
+
+h2:after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 60px;
+    height: 3px;
+    background-color: var(--highlight-color);
+}
+
+h3 {
+    font-size: 1.75rem;
+}
+
+p {
+    margin-bottom: 1.5rem;
+}
+
+a {
+    text-decoration: none;
+    color: var(--primary-color);
+    transition: var(--transition);
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+.container {
+    width: 90%;
+    max-width: var(--container-width);
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.section-header p {
+    color: var(--secondary-color);
+    font-size: 1.1rem;
+}
+
+.accent {
+    color: var(--highlight-color);
+}
+
+/* Navbar */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    padding: 1.5rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: var(--transition);
+}
+
+.navbar.scrolled {
+    background-color: var(--primary-color);
+    padding: 1rem 2rem;
+    box-shadow: var(--shadow);
+}
+
+.logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--light-color);
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+}
+
+.nav-links li {
+    margin-left: 2rem;
+}
+
+.nav-links li a {
+    color: var(--light-color);
+    font-weight: 500;
+    position: relative;
+}
+
+.nav-links li a:after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--highlight-color);
+    transition: var(--transition);
+}
+
+.nav-links li a:hover:after {
+    width: 100%;
+}
+
+.burger {
+    display: none;
+    cursor: pointer;
+}
+
+.burger div {
+    width: 25px;
+    height: 3px;
+    background-color: var(--light-color);
+    margin: 5px;
+    transition: var(--transition);
+}
+
+/* Hero Section */
+.hero {
+    height: 100vh;
+    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
+                url('https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: var(--light-color);
+    position: relative;
+}
+
+.hero-content {
+    max-width: 800px;
+    padding: 0 1rem;
+}
+
+.hero-content h1 {
+    margin-bottom: 1.5rem;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+}
+
+.cta-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.cta-button {
+    padding: 0.8rem 2rem;
+    border-radius: 50px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: var(--transition);
+}
+
+.cta-button.primary {
+    background-color: var(--highlight-color);
+    color: var(--dark-color);
+}
+
+.cta-button.primary:hover {
+    background-color: var(--dark-color);
+    color: var(--light-color);
+}
+
+.cta-button.secondary {
+    background-color: transparent;
+    color: var(--light-color);
+    border: 2px solid var(--light-color);
+}
+
+.cta-button.secondary:hover {
+    background-color: var(--light-color);
+    color: var(--dark-color);
+}
+
+.scroll-down {
+    position: absolute;
+    bottom: 2rem;
+    font-size: 1.5rem;
+    animation: bounce 2s infinite;
+}
+
+.scroll-down a {
+    color: var(--light-color);
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-20px);
+    }
+    60% {
+        transform: translateY(-10px);
+    }
+}
+
+/* Featured Section */
+.featured {
+    padding: 5rem 0;
+    background-color: var(--light-color);
+}
+
+.featured-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.featured-item {
+    text-align: center;
+    padding: 2rem;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+}
+
+.featured-item:hover {
+    transform: translateY(-10px);
+}
+
+.featured-item i {
+    font-size: 3rem;
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+}
+
+.featured-item h3 {
+    margin-bottom: 1rem;
+}
+
+/* Menu Section */
+.menu {
+    padding: 5rem 0;
+    background-color: white;
+}
+
+.menu-tabs {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 3rem;
+}
+
+.menu-tab {
+    padding: 0.8rem 2rem;
+    background-color: transparent;
+    border: none;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    cursor: pointer;
+    position: relative;
+    transition: var(--transition);
+}
+
+.menu-tab:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 3px;
+    background-color: var(--highlight-color);
+    transition: var(--transition);
+}
+
+.menu-tab.active, .menu-tab:hover {
+    color: var(--primary-color);
+}
+
+.menu-tab.active:after, .menu-tab:hover:after {
+    width: 50%;
+}
+
+.menu-content {
+    display: none;
+}
+
+.menu-content.active {
+    display: block;
+}
+
+.menu-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+/* Enhanced Aesthetics */
+.menu-item {
+    background-color: var(--light-color);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+    border-bottom: 3px solid var(--highlight-color);
+}
+
+.menu-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(62, 39, 35, 0.2);
+}
+
+.featured-item {
+    text-align: center;
+    padding: 2rem;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+    border-left: 3px solid var(--primary-color);
+}
+
+.featured-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(62, 39, 35, 0.2);
+    border-left: 3px solid var(--highlight-color);
+}
+
+/* Coffee Bean Background Pattern */
+.hero:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('https://www.transparenttextures.com/patterns/coffee-beans.png');
+    opacity: 0.1;
+    z-index: -1;
+}
+
+/* Animated Gradient Background for Testimonials */
+.testimonials {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--dark-color) 100%);
+    background-size: 200% 200%;
+    animation: gradientBG 15s ease infinite;
+}
+
+@keyframes gradientBG {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Enhanced Button Styles */
+.cta-button {
+    padding: 0.8rem 2rem;
+    border-radius: 50px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.cta-button:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.1);
+    transition: all 0.5s ease;
+    z-index: -1;
+}
+
+.cta-button:hover:before {
+    width: 100%;
+}
+
+/* Decorative Elements */
+.section-header h2:before {
+    content: '☕';
+    margin-right: 10px;
+    font-size: 1.5rem;
+}
+
+/* Enhanced Form Inputs */
+.form-group input:focus, 
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(93, 64, 55, 0.2);
+}
+
+/* Stylish Scrollbar */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--light-color);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--secondary-color);
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--primary-color);
+}
+
+/* Image Overlay Effect */
+.gallery-item {
+    position: relative;
+}
+
+.gallery-item:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(93, 64, 55, 0.7) 100%);
+    opacity: 0;
+    transition: var(--transition);
+}
+
+.gallery-item:hover:after {
+    opacity: 1;
+}
+
+/* Text Selection Color */
+::selection {
+    background-color: var(--highlight-color);
+    color: var(--dark-color);
+}
+
+/* Enhanced Footer */
+footer {
+    position: relative;
+    overflow: hidden;
+}
+
+footer:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 10px;
+    background: linear-gradient(90deg, var(--highlight-color), var(--primary-color), var(--dark-color));
+}
+
+/* Animated Social Icons */
+.social-links a:hover {
+    background-color: var(--highlight-color);
+    color: var(--dark-color);
+    transform: translateY(-5px) rotate(10deg);
+}
+
+/* Enhanced Menu Tabs */
+.menu-tab {
+    padding: 0.8rem 2rem;
+    background-color: transparent;
+    border: none;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    cursor: pointer;
+    position: relative;
+    transition: var(--transition);
+    overflow: hidden;
+}
+
+.menu-tab:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(93, 64, 55, 0.1);
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.5s ease;
+    z-index: -1;
+}
+
+.menu-tab:hover:before,
+.menu-tab.active:before {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+.menu-content {
+    display: none;
+}
+
+.menu-content.active {
+    display: block;
+}
+
+.menu-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.menu-item {
+    background-color: var(--light-color);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+    border-bottom: 3px solid var(--highlight-color);
+}
+
+.menu-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(62, 39, 35, 0.2);
+}
+
+.featured-item {
+    text-align: center;
+    padding: 2rem;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+    border-left: 3px solid var(--primary-color);
+}
+
+.featured-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(62, 39, 35, 0.2);
+    border-left: 3px solid var(--highlight-color);
+}
+
+/* Coffee Bean Background Pattern */
+.hero:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('https://www.transparenttextures.com/patterns/coffee-beans.png');
+    opacity: 0.1;
+    z-index: -1;
+}
+
+/* Animated Gradient Background for Testimonials */
+.testimonials {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--dark-color) 100%);
+    background-size: 200% 200%;
+    animation: gradientBG 15s ease infinite;
+}
+
+@keyframes gradientBG {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Enhanced Button Styles */
+.cta-button {
+    padding: 0.8rem 2rem;
+    border-radius: 50px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.cta-button:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.1);
+    transition: all 0.5s ease;
+    z-index: -1;
+}
+
+.cta-button:hover:before {
+    width: 100%;
+}
+
+/* Decorative Elements */
+.section-header h2:before {
+    content: '☕';
+    margin-right: 10px;
+    font-size: 1.5rem;
+}
+
+/* Enhanced Form Inputs */
+.form-group input:focus, 
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(93, 64, 55, 0.2);
+}
+
+/* Stylish Scrollbar */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--light-color);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--secondary-color);
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--primary-color);
+}
+
+/* Image Overlay Effect */
+.gallery-item {
+    position: relative;
+}
+
+.gallery-item:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(93, 64, 55, 0.7) 100%);
+    opacity: 0;
+    transition: var(--transition);
+}
+
+.gallery-item:hover:after {
+    opacity: 1;
+}
+
+/* Text Selection Color */
+::selection {
+    background-color: var(--highlight-color);
+    color: var(--dark-color);
+}
+
+/* Enhanced Footer */
+footer {
+    position: relative;
+    overflow: hidden;
+}
+
+footer:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 10px;
+    background: linear-gradient(90deg, var(--highlight-color), var(--primary-color), var(--dark-color));
+}
+
+/* Animated Social Icons */
+.social-links a:hover {
+    background-color: var(--highlight-color);
+    color: var(--dark-color);
+    transform: translateY(-5px) rotate(10deg);
+}
+
+/* Enhanced Menu Tabs */
+.menu-tab {
+    padding: 0.8rem 2rem;
+    background-color: transparent;
+    border: none;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    cursor: pointer;
+    position: relative;
+    transition: var(--transition);
+    overflow: hidden;
+}
+
+.menu-tab:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(93, 64, 55, 0.1);
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.5s ease;
+    z-index: -1;
+}
+
+.menu-tab:hover:before,
+.menu-tab.active:before {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+.menu-content {
+    display: none;
+}
+
+.menu-content.active {
+    display: block;
+}
+
+.menu-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.menu-item {
+    background-color: var(--light-color);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+    border-bottom: 3px solid var(--highlight-color);
+}
+
+.menu-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(62, 39, 35, 0.2);
+}
+
+.featured-item {
+    text-align: center;
+    padding: 2rem;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+    border-left: 3px solid var(--primary-color);
+}
+
+.featured-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(62, 39, 35, 0.2);
+    border-left: 3px solid var(--highlight-color);
+}
+
+/* Coffee Bean Background Pattern */
+.hero:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('https://www.transparenttextures.com/patterns/coffee-beans.png');
+    opacity: 0.1;
+    z-index: -1;
+}
+
+/* Animated Gradient Background for Testimonials */
+.testimonials {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--dark-color) 100%);
+    background-size: 200% 200%;
+    animation: gradientBG 15s ease infinite;
+}
+
+@keyframes gradientBG {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Enhanced Button Styles */
+.cta-button {
+    padding: 0.8rem 2rem;
+    border-radius: 50px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.cta-button:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.1);
+    transition: all 0.5s ease;
+    z-index: -1;
+}
+
+.cta-button:hover:before {
+    width: 100%;
+}
+
+/* Decorative Elements */
+.section-header h2:before {
+    content: '☕';
+    margin-right: 10px;
+    font-size: 1.5rem;
+}
+
+/* Enhanced Form Inputs */
+.form-group input:focus, 
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(93, 64, 55, 0.2);
+}
+
+/* Stylish Scrollbar */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--light-color);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--secondary-color);
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--primary-color);
+}
+
+/* Image Overlay Effect */
+.gallery-item {
+    position: relative;
+}
+
+.gallery-item:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(93, 64, 55, 0.7) 100%);
+    opacity: 0;
+    transition: var(--transition);
+}
+
+.gallery-item:hover:after {
+    opacity: 1;
+}
+
+/* Text Selection Color */
+::selection {
+    background-color: var(--highlight-color);
+    color: var(--dark-color);
+}
+
+/* Enhanced Footer */
+footer {
+    position: relative;
+    overflow: hidden;
+}
+
+footer:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 10px;
+    background: linear-gradient(90deg, var(--highlight-color), var(--primary-color), var(--dark-color));
+}
+
+/* Animated Social Icons */
+.social-links a:hover {
+    background-color: var(--highlight-color);
+    color: var(--dark-color);
+    transform: translateY(-5px) rotate(10deg);
+}
+
+/* Enhanced Menu Tabs */
+.menu-tab {
+    padding: 0.8rem 2rem;
+    background-color: transparent;
+    border: none;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    cursor: pointer;
+    position: relative;
+    transition: var(--transition);
+    overflow: hidden;
+}
+
+.menu-tab:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(93, 64, 55, 0.1);
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.5s ease;
+    z-index: -1;
+}
+
+.menu-tab:hover:before,
+.menu-tab.active:before {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+.menu-content {
+    display: none;
+}
+
+.menu-content.active {
+    display: block;
+}
+
+.menu-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.menu-item {
+    background-color: var(--light-color);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+    border-bottom: 3px solid var(--highlight-color);
+}
+
+.menu-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(62, 39, 35, 0.2);
+}
+
+.featured-item {
+    text-align: center;
+    padding: 2rem;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+    border-left: 3px solid var(--primary-color);
+}
+
+.featured-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(62, 39, 35, 0.2);
+    border-left: 3px solid var(--highlight-color);
+}
+
+/* Coffee Bean Background Pattern */
+.hero:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('https://www.transparenttextures.com/patterns/coffee-beans.png');
+    opacity: 0.1;
+    z-index: -1;
+}
+
+/* Animated Gradient Background for Testimonials */
+.testimonials {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--dark-color) 100%);
+    background-size: 200% 200%;
+    animation: gradientBG 15s ease infinite;
+}
+
+@keyframes gradientBG {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Enhanced Button Styles */
+.cta-button {
+    padding: 0.8rem 2rem;
+    border-radius: 50px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.cta-button:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.1);
+    transition: all 0.5s ease;
+    z-index: -1;
+}
+
+.cta-button:hover:before {
+    width: 100%;
+}
+
+/* Decorative Elements */
+.section-header h2:before {
+    content: '☕';
+    margin-right: 10px;
+    font-size: 1.5rem;
+}
+
+/* Enhanced Form Inputs */
+.form-group input:focus, 
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(93, 64, 55, 0.2);
+}
+
+/* Stylish Scrollbar */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--light-color);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--secondary-color);
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--primary-color);
+}
+
+/* Image Overlay Effect */
+.gallery-item {
+    position: relative;
+}
+
+.gallery-item:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(93, 64, 55, 0.7) 100%);
+    opacity: 0;
+    transition: var(--transition);
+}
+
+.gallery-item:hover:after {
+    opacity: 1;
+}
+
+/* Text Selection Color */
+::selection {
+    background-color: var(--highlight-color);
+    color: var(--dark-color);
+}
+
+/* Enhanced Footer */
+footer {
+    position: relative;
+    overflow: hidden;
+}
+
+footer:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 10px;
+    background: linear-gradient(90deg, var(--highlight-color), var(--primary-color), var(--dark-color));
+}
+
+/* Animated Social Icons */
+.social-links a:hover {
+    background-color: var(--highlight-color);
+    color: var(--dark-color);
+    transform: translateY(-5px) rotate(10deg);
+}
+
+/* Enhanced Menu Tabs */
+.menu-tab {
+    padding: 0.8rem 2rem;
+    background-color: transparent;
+    border: none;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    cursor: pointer;
+    position: relative;
+    transition: var(--transition);
+    overflow: hidden;
+}
+
+.menu-tab:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(93, 64, 55, 0.1);
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.5s ease;
+    z-index: -1;
+}
+
+.menu-tab:hover:before,
+.menu-tab.active:before {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+.menu-content {
+    display: none;
+}
+
+.menu-content.active {
+    display: block;
+}
+
+.menu-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.menu-item {
+    background-color: var(--light-color);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+    border-bottom: 3px solid var(--highlight-color);
+}
+
+.menu-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(62, 39, 35, 0.2);
+}
+
+.featured-item {
+    text-align: center;
+    padding: 2rem;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+    border-left: 3px solid var(--primary-color);
+}
+
+.featured-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(62, 39, 35, 0.2);
+    border-left: 3px solid var(--highlight-color);
+}
+
+/* Coffee Bean Background Pattern */
+.hero:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('https://www.transparenttextures.com/patterns/coffee-beans.png');
+    opacity: 0.1;
+    z-index: -1;
+}
+
+/* Animated Gradient Background for Testimonials */
+.testimonials {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--dark-color) 100%);
+    background-size: 200% 200%;
+    animation: gradientBG 15s ease infinite;
+}
+
+@keyframes gradientBG {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Enhanced Button Styles */
+.cta-button {
+    padding: 0.8rem 2rem;
+    border-radius: 50px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.cta-button:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.1);
+    transition: all 0.5s ease;
+    z-index: -1;
+}
+
+.cta-button:hover:before {
+    width: 100%;
+}
+
+/* Decorative Elements */
+.section-header h2:before {
+    content: '☕';
+    margin-right: 10px;
+    font-size: 1.5rem;
+}
+
+/* Enhanced Form Inputs */
+.form-group input:focus, 
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(93, 64, 55, 0.2);
+}
+
+/* Stylish Scrollbar */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--light-color);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--secondary-color);
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--primary-color);
+}
+
+/* Image Overlay Effect */
+.gallery-item {
+    position: relative;
+}
+
+.gallery-item:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(93, 64, 55, 0.7) 100%);
+    opacity: 0;
+    transition: var(--transition);
+}
+
+.gallery-item:hover:after {
+    opacity: 1;
+}
+
+/* Text Selection Color */
+::selection {
+    background-color: var(--highlight-color);
+    color: var(--dark-color);
+}
+
+/* Enhanced Footer */
+footer {
+    position: relative;
+    overflow: hidden;
+}
+
+footer:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 10px;
+    background: linear-gradient(90deg, var(--highlight-color), var(--primary-color), var(--dark-color));
+}
+
+/* Animated Social Icons */
+.social-links a:hover {
+    background-color: var(--highlight-color);
+    color: var(--dark-color);
+    transform: translateY(-5px) rotate(10deg);
+}
+
+/* Enhanced Menu Tabs */
+.menu-tab {
+    padding: 0.8rem 2rem;
+    background-color: transparent;
+    border: none;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    cursor: pointer;
+    position: relative;
+    transition: var(--transition);
+    overflow: hidden;
+}
+
+.menu-tab:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(93, 64, 55, 0.1);
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.5s ease;
+    z-index: -1;
+}
+
+.menu-tab:hover:before,
+.menu-tab.active:before {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+.menu-content {
+    display: none;
+}
+
+.menu-content.active {
+    display: block;
+}
+
+.menu-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.menu-item {
+    background-color: var(--light-color);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+    border-bottom: 3px solid var(--highlight-color);
+}
+
+.menu-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(62, 39, 35, 0.2);
+}
+
+.featured-item {
+    text-align: center;
+    padding: 2rem;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+    border-left: 3px solid var(--primary-color);
+}
+
+.featured-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(62, 39, 35, 0.2);
+    border-left: 3px solid var(--highlight-color);
+}
+
+/* Coffee Bean Background Pattern */
+.hero:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('https://www.transparenttextures.com/patterns/coffee-beans.png');
+    opacity: 0.1;
+    z-index: -1;
+}
+
+/* Animated Gradient Background for Testimonials */
+.testimonials {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--dark-color) 100%);
+    background-size: 200% 200%;
+    animation: gradientBG 15s ease infinite;
+}
+
+@keyframes gradientBG {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Enhanced Button Styles */
+.cta-button {
+    padding: 0.8rem 2rem;
+    border-radius: 50px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.cta-button:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.1);
+    transition: all 0.5s ease;
+    z-index: -1;
+}
+
+.cta-button:hover:before {
+    width: 100%;
+}
+
+/* Decorative Elements */
+.section-header h2:before {
+    content: '☕';
+    margin-right: 10px;
+    font-size: 1.5rem;
+}
+
+/* Enhanced Form Inputs */
+.form-group input:focus, 
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(93, 64, 55, 0.2);
+}
+
+/* Stylish Scrollbar */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--light-color);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--secondary-color);
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--primary-color);
+}
+
+/* Image Overlay Effect */
+.gallery-item {
+    position: relative;
+}
+
+.gallery-item:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(93, 64, 55, 0.7) 100%);
+    opacity: 0;
+    transition: var(--transition);
+}
+
+.gallery-item:hover:after {
+    opacity: 1;
+}
+
+/* Text Selection Color */
+::selection {
+    background-color: var(--highlight-color);
+    color: var(--dark-color);
+}
+
+/* Enhanced Footer */
+footer {
+    position: relative;
+    overflow: hidden;
+}
+
+footer:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 10px;
+    background: linear-gradient(90deg, var(--highlight-color), var(--primary-color), var(--dark-color));
+}
+
+/* Animated Social Icons */
+.social-links a:hover {
+    background-color: var(--highlight-color);
+    color: var(--dark-color);
+    transform: translateY(-5px) rotate(10deg);
+}
+
+/* Enhanced Menu Tabs */
+.menu-tab {
+    padding: 0.8rem 2rem;
+    background-color: transparent;
+    border: none;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    cursor: pointer;
+    position: relative;
+    transition: var(--transition);
+    overflow: hidden;
+}
+
+.menu-tab:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(93, 64, 55, 0.1);
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.5s ease;
+    z-index: -1;
+}
+
+.menu-tab:hover:before,
+.menu-tab.active:before {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+.menu-content {
+    display: none;
+}
+
+.menu-content.active {
+    display: block;
+}
+
+.menu-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.menu-item {
+    background-color: var(--light-color);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+    border-bottom: 3px solid var(--highlight-color);
+}
+
+.menu-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(62, 39, 35, 0.2);
+}
+
+.featured-item {
+    text-align: center;
+    padding: 2rem;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+    border-left: 3px solid var(--primary-color);
+}
+
+.featured-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(62, 39, 35, 0.2);
+    border-left: 3px solid var(--highlight-color);
+}
+
+/* Coffee Bean Background Pattern */
+.hero:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('https://www.transparenttextures.com/patterns/coffee-beans.png');
+    opacity: 0.1;
+    z-index: -1;
+}
+
+/* Animated Gradient Background for Testimonials */
+.testimonials {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--dark-color) 100%);
+    background-size: 200% 200%;
+    animation: gradientBG 15s ease infinite;
+}
+
+@keyframes gradientBG {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Enhanced Button Styles */
+.cta-button {
+    padding: 0.8rem 2rem;
+    border-radius: 50px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.cta-button:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.1);
+    transition: all 0.5s ease;
+    z-index: -1;
+}
+
+.cta-button:hover:before {
+    width: 100%;
+}
+
+/* Decorative Elements */
+.section-header h2:before {
+    content: '☕';
+    margin-right: 10px;
+    font-size: 1.5rem;
+}
+
+/* Enhanced Form Inputs */
+.form-group input:focus, 
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(93, 64, 55, 0.2);
+}
+
+/* Stylish Scrollbar */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--light-color);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--secondary-color);
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--primary-color);
+}
+
+/* Image Overlay Effect */
+.gallery-item {
+    position: relative;
+}
+
+.gallery-item:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(93, 64, 55, 0.7) 100%);
+    opacity: 0;
+    transition: var(--transition);
+}
+
+.gallery-item:hover:after {
+    opacity: 1;
+}
+
+/* Text Selection Color */
+::selection {
+    background-color: var(--highlight-color);
+    color: var(--dark-color);
+}
+
+/* Enhanced Footer */
+footer {
+    position: relative;
+    overflow: hidden;
+}
+
+footer:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 10px;
+    background: linear-gradient(90deg, var(--highlight-color), var(--primary-color), var(--dark-color));
+}
+
+/* Animated Social Icons */
+.social-links a:hover {
+    background-color: var(--highlight-color);
+    color: var(--dark-color);
+    transform: translateY(-5px) rotate(10deg);
+}
+
+/* Enhanced Menu Tabs */
+.menu-tab {
+    padding: 0.8rem 2rem;
+    background-color: transparent;
+    border: none;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    cursor: pointer;
+    position: relative;
+    transition: var(--transition);
+    overflow: hidden;
+}
+
+.menu-tab:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(93, 64, 55, 0.1);
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.5s ease;
+    z-index: -1;
+}
+
+.menu-tab:hover:before,
+.menu-tab.active:before {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+.menu-content {
+    display: none;
+}
+
+.menu-content.active {
+    display: block;
+}
+
+.menu-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.menu-item {
+    background-color: var(--light-color);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+    border-bottom: 3px solid var(--highlight-color);
+}
+
+.menu-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(62, 39, 35, 0.2);
+}
+
+.featured-item {
+    text-align: center;
+    padding: 2rem;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+    border-left: 3px solid var(--primary-color);
+}
+
+.featured-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(62, 39, 35, 0.2);
+    border-left: 3px solid var(--highlight-color);
+}
+
+/* Coffee Bean Background Pattern */
+.hero:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('https://www.transparenttextures.com/patterns/coffee-beans.png');
+    opacity: 0.1;
+    z-index: -1;
+}
+
+/* Animated Gradient Background for Testimonials */
+.testimonials {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--dark-color) 100%);
+    background-size: 200% 200%;
+    animation: gradientBG 15s ease infinite;
+}
+
+@keyframes gradientBG {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Enhanced Button Styles */
+.cta-button {
+    padding: 0.8rem 2rem;
+    border-radius: 50px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.cta-button:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.1);
+    transition: all 0.5s ease;
+    z-index: -1;
+}
+
+.cta-button:hover:before {
+    width: 100%;
+}
+
+/* Decorative Elements */
+.section-header h2:before {
+    content: '☕';
+    margin-right: 10px;
+    font-size: 1.5rem;
+}
+
+/* Enhanced Form Inputs */
+.form-group input:focus, 
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(93, 64, 55, 0.2);
+}
+
+/* Stylish Scrollbar */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--light-color);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--secondary-color);
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--primary-color);
+}
+
+/* Image Overlay Effect */
+.gallery-item {
+    position: relative;
+}
+
+.gallery-item:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(93, 64, 55, 0.7) 100%);
+    opacity: 0;
+    transition: var(--transition);
+}
+
+.gallery-item:hover:after {
+    opacity: 1;
+}
+
+/* Text Selection Color */
+::selection {
+    background-color: var(--highlight-color);
+    color: var(--dark-color);
+}
+
+/* Enhanced Footer */
+footer {
+    position: relative;
+    overflow: hidden;
+}
+
+footer:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 10px;
+    background: linear-gradient(90deg, var(--highlight-color), var(--primary-color), var(--dark-color));
+}
+
+/* Animated Social Icons */
+.social-links a:hover {
+    background-color: var(--highlight-color);
+    color: var(--dark-color);
+    transform: translateY(-5px) rotate(10deg);
+}
+
+/* Enhanced Menu Tabs */
+.menu-tab {
+    padding: 0.8rem 2rem;
+    background-color: transparent;
+    border: none;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    cursor: pointer;
+    position: relative;
+    transition: var(--transition);
+    overflow: hidden;
+}
+
+.menu-tab:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(93, 64, 55, 0.1);
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.5s ease;
+    z-index: -1;
+}
+
+.menu-tab:hover:before,
+.menu-tab.active:before {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+.menu-content {
+    display: none;
+}
+
+.menu-content.active {
+    display: block;
+}
+
+.menu-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.menu-item {
+    background-color: var(--light-color);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+    border-bottom: 3px solid var(--highlight-color);
+}
+
+.menu-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(62, 39, 35, 0.2);
+}
+
+.featured-item {
+    text-align: center;
+    padding: 2rem;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+    border-left: 3px solid var(--primary-color);
+}
+
+.featured-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(62, 39, 35, 0.2);
+    border-left: 3px solid var(--highlight-color);
+}
+
+/* Coffee Bean Background Pattern */
+.hero:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('https://www.transparenttextures.com/patterns/coffee-beans.png');
+    opacity: 0.1;
+    z-index: -1;
+}
+
+/* Animated Gradient Background for Testimonials */
+.testimonials {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--dark-color) 100%);
+    background-size: 200% 200%;
+    animation: gradientBG 15s ease infinite;
+}
+
+@keyframes gradientBG {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Enhanced Button Styles */
+.cta-button {
+    padding: 0.8rem 2rem;
+    border-radius: 50px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.cta-button:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.1);
+    transition: all 0.5s ease;
+    z-index: -1;
+}
+
+.cta-button:hover:before {
+    width: 100%;
+}
+
+/* Decorative Elements */
+.section-header h2:before {
+    content: '☕';
+    margin-right: 10px;
+    font-size: 1.5rem;
+}
+
+/* Enhanced Form Inputs */
+.form-group input:focus, 
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(93, 64, 55, 0.2);
+}
+
+/* Stylish Scrollbar */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--light-color);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--secondary-color);
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--primary-color);
+}
+
+/* Image Overlay Effect */
+.gallery-item {
+    position: relative;
+}
+
+.gallery-item:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(93, 64, 55, 0.7) 100%);
+    opacity: 0;
+    transition: var(--transition);
+}
+
+.gallery-item:hover:after {
+    opacity: 1;
+}
+
+/* Text Selection Color */
+::selection {
+    background-color
